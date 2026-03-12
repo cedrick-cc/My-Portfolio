@@ -32,7 +32,9 @@ const Hero = () => {
           style={{ animationDelay: '0.1s' }}
         >
           <HiCode className="w-4 h-4 text-primary-400 group-hover:rotate-12 transition-transform duration-300" />
-          <span className="text-sm font-medium text-primary-300 tracking-wide">Software Developer</span>
+          <span className="text-sm font-medium text-primary-300 tracking-wide">
+            Software Engineer / Junior DevOps Engineer
+          </span>
         </div>
 
         <h1 
@@ -55,7 +57,7 @@ const Hero = () => {
           className="text-lg sm:text-xl text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed animate-fade-in-up" 
           style={{ animationDelay: '0.4s' }}
         >
-          Specialized in full-stack development with Java, Spring Boot, React.js, and modern AI/ML technologies
+          Specialized in full-stack development and Linux-based DevOps—combining Java, Spring Boot, React.js, Docker, and cloud-native tooling to build secure, scalable systems
         </p>
 
         {/* Quick Stats for Recruiters */}

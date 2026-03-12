@@ -16,6 +16,7 @@ const Navbar = ({ activeSection }) => {
   const navItems = [
     { id: 'skills', label: 'Skills' },
     { id: 'experience', label: 'Experience' },
+    { id: 'devops-projects', label: 'DevOps & Linux' },
     { id: 'projects', label: 'Projects' },
     { id: 'about', label: 'About' },
     { id: 'education', label: 'Education' },

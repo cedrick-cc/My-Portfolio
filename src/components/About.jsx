@@ -12,23 +12,23 @@ const About = () => {
         <div className="space-y-8">
           <div className="card-premium p-8 md:p-10 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             <p className="text-xl md:text-2xl text-gray-200 leading-relaxed font-light">
-              I am an <span className="text-gradient font-semibold">innovative Software Developer</span> with expertise in Java, Spring Boot, React.js, and modern AI/ML technologies. 
-              I specialize in transforming complex problems into intelligent, scalable, and user-focused solutions that drive real-world impact.
+              I am a <span className="text-gradient font-semibold">Software Engineer & Junior DevOps Engineer</span> with expertise in Java, Spring Boot, React.js, and Linux-based infrastructure. 
+              I focus on transforming complex requirements into reliable, secure, and scalable systems that support real organizations.
             </p>
           </div>
 
           <div className="card-premium p-8 md:p-10 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
             <p className="text-xl md:text-2xl text-gray-200 leading-relaxed font-light">
-              My passion lies in leveraging <span className="text-primary-400 font-medium">artificial intelligence and machine learning</span> to create adaptive, data-driven applications 
-              that not only meet technical requirements but exceed user expectations. I approach every project with a focus on clean 
-              architecture, optimal performance, and seamless user experiences.
+              My passion lies in <span className="text-primary-400 font-medium">Linux administration, DevOps practices, and automation</span>—from configuring secure web servers and firewalls 
+              to containerizing applications and setting up reliable infrastructure. I approach every project with a focus on clean 
+              architecture, operational reliability, and strong observability.
             </p>
           </div>
 
           <div className="card-premium p-8 md:p-10 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
             <p className="text-xl md:text-2xl text-gray-200 leading-relaxed font-light">
-              Currently pursuing my <span className="text-primary-400 font-medium">Bachelor of Science in Information Technology</span> while gaining hands-on experience in full-stack 
-              development, I bring a unique combination of academic rigor and practical problem-solving skills to every challenge.
+              Currently pursuing my <span className="text-primary-400 font-medium">Bachelor of Science in Information Technology</span> while building real-world full-stack and DevOps projects, 
+              I bring a combination of academic rigor and hands-on experience with Linux, containers, and cloud fundamentals.
             </p>
           </div>
         </div>

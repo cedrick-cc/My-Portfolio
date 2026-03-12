@@ -34,7 +34,7 @@ const Education = () => {
                 </span>
                 <span className="flex items-center gap-2">
                   <HiCalendar className="w-5 h-5 text-primary-400" />
-                  Graduating 2026
+                  Graduation - 2026
                 </span>
               </div>
               <div className="inline-block px-6 py-3 bg-gradient-to-r from-primary-900/40 to-primary-800/20 border border-primary-700/30 rounded-xl">

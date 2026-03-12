@@ -3,6 +3,20 @@ import { HiCalendar, HiLocationMarker } from 'react-icons/hi'
 const Experience = () => {
   const experiences = [
     {
+      title: 'IT Systems Support & Implementation Associate',
+      company: 'DIRECA',
+      location: 'Kigali, Rwanda',
+      period: '2026 - Present',
+      responsibilities: [
+        'Perform functional testing of organizational software systems to identify bugs, usability issues, and performance gaps before deployment',
+        'Document and report system issues to the development team, contributing to continuous improvement and system reliability',
+        'Acquire in-depth knowledge of the platform architecture and workflows to effectively support troubleshooting and user guidance',
+        'Participate in system demonstrations and onboarding sessions with partner organizations, explaining system features, workflows, and operational benefits',
+        'Assist organizations during initial adoption by providing technical guidance and answering operational questions about the platform',
+        'Collaborate with developers and internal teams to ensure feedback from field usage is incorporated into system improvements',
+      ],
+    },
+    {
       title: 'Software Engineer Intern',
       company: 'Career Access Africa',
       location: 'Kigali, Rwanda',

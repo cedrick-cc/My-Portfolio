@@ -11,9 +11,11 @@ import {
   SiGit, 
   SiKubernetes,
   SiFigma,
-  SiMui
+  SiMui,
+  SiDocker,
+  SiLinux
 } from 'react-icons/si'
-import { HiCode, HiDesktopComputer } from 'react-icons/hi'
+import { HiCode, HiDesktopComputer, HiCloud } from 'react-icons/hi'
 
 const Skills = () => {
   const skillCategories = [
@@ -29,6 +31,16 @@ const Skills = () => {
       ],
     },
     {
+      title: 'Cloud & Infrastructure',
+      skills: [
+        { name: 'Cloud fundamentals', icon: HiCloud, color: 'text-sky-400' },
+        { name: 'Basic infrastructure concepts', icon: HiCloud, color: 'text-sky-300' },
+        { name: 'Linux', icon: SiLinux, color: 'text-emerald-400' },
+        { name: 'Docker', icon: SiDocker, color: 'text-blue-400' },
+        { name: 'Kubernetes', icon: SiKubernetes, color: 'text-blue-600' },
+      ],
+    },
+    {
       title: 'Frameworks & Libraries',
       skills: [
         { name: 'React', icon: SiReact, color: 'text-cyan-400' },
@@ -39,12 +51,12 @@ const Skills = () => {
       ],
     },
     {
-      title: 'Tools & Technologies',
+      title: 'Other Tools',
       skills: [
         { name: 'Git', icon: SiGit, color: 'text-orange-600' },
         { name: 'VS Code', icon: HiDesktopComputer, color: 'text-blue-500' },
         { name: 'Figma', icon: SiFigma, color: 'text-purple-500' },
-        { name: 'Kubernetes', icon: SiKubernetes, color: 'text-blue-600' },
+        { name: 'Bash scripting', icon: HiCode, color: 'text-emerald-300' },
       ],
     },
   ]
