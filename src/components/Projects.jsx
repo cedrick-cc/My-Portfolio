@@ -1,5 +1,14 @@
 import { HiCode, HiExternalLink, HiGlobe } from 'react-icons/hi'
-import { SiReact, SiSpring, SiNextdotjs, SiTypescript, SiTailwindcss } from 'react-icons/si'
+import {
+  SiReact,
+  SiSpring,
+  SiNextdotjs,
+  SiTypescript,
+  SiTailwindcss,
+  SiNodedotjs,
+  SiExpress,
+  SiPostgresql,
+} from 'react-icons/si'
 
 const Projects = () => {
   const projects = [
@@ -41,6 +50,15 @@ const Projects = () => {
       color: 'text-primary-400',
       isComingSoon: true,
     },
+    {
+      title: 'TaskFlow - Premium Task Management App',
+      description:
+        'A modern to-do list application with a glassmorphism UI and full-stack CRUD (React + Node/Express + PostgreSQL), including status/priority filtering and sorting.',
+      techStack: ['React', 'Node.js', 'Express', 'PostgreSQL', 'Tailwind CSS'],
+      githubUrl: 'https://github.com/cedrick-cc/TO-DO-LIST.git',
+      icon: HiCode,
+      color: 'text-emerald-400',
+    },
   ]
 
   const getTechIcon = (tech) => {
@@ -51,6 +69,9 @@ const Projects = () => {
       'Next.js': SiNextdotjs,
       TypeScript: SiTypescript,
       'Tailwind CSS': SiTailwindcss,
+      'Node.js': SiNodedotjs,
+      Express: SiExpress,
+      PostgreSQL: SiPostgresql,
     }
     return techIcons[tech] || HiCode
   }
