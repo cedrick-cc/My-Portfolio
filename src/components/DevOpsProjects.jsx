@@ -1,4 +1,6 @@
-import { HiServer, HiShieldCheck, HiChip, HiExternalLink } from 'react-icons/hi'
+import { motion } from 'framer-motion'
+import { ArrowUpRight, Cpu, Server, ShieldCheck, TerminalSquare } from 'lucide-react'
+import SectionFloatingObjects from './SectionFloatingObjects'
 
 const DevOpsProjects = () => {
   const projects = [
@@ -12,7 +14,7 @@ const DevOpsProjects = () => {
       evidenceLabel: 'Bash scripting videos',
       evidenceUrl:
         'https://drive.google.com/drive/folders/1QLnYGwIsmYzTaWy6bcfc1tokQoIScYVv?usp=sharing',
-      icon: HiServer,
+      icon: Server,
     },
     {
       title: 'Secure Linux Web Server & Network Defence Implementation',
@@ -25,7 +27,7 @@ const DevOpsProjects = () => {
       evidenceLabel: 'Secure Web Server – videos, logs & documentation',
       evidenceUrl:
         'https://drive.google.com/drive/folders/1rJit4ZEENSfY-MdGqWRmTHWwoMZK24LA?usp=sharing',
-      icon: HiShieldCheck,
+      icon: ShieldCheck,
     },
     {
       title: 'Linux Infrastructure, Containerization & Load Balancing with Traefik',
@@ -38,17 +40,24 @@ const DevOpsProjects = () => {
       evidenceLabel: 'Linux Infrastructure – videos & documentation',
       evidenceUrl:
         'https://drive.google.com/drive/folders/1XZ0bF-HHPjB8MLALSFVy6SshPn6KFBjH?usp=sharing',
-      icon: HiChip,
+      icon: Cpu,
     },
   ]
 
   return (
     <section
       id="devops-projects"
-      className="section-padding bg-gradient-to-b from-gray-950 via-gray-900/30 to-gray-950"
+      className="section-padding bg-gradient-to-b from-dark-base via-dark-forest/30 to-dark-base relative overflow-hidden"
     >
+      <SectionFloatingObjects placement="balanced" mood="techy" threeVariant="techCube" />
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7 }}
+        >
           <h2 className="text-5xl sm:text-6xl font-extrabold mb-4 text-gray-50">
             DevOps &amp; <span className="text-gradient">Linux Projects</span>
           </h2>
@@ -57,16 +66,26 @@ const DevOpsProjects = () => {
             Hands-on Linux, security, and containerization projects with real deployment and
             monitoring evidence
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+        <motion.div
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.15 }}
+          variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08 } } }}
+        >
           {projects.map((project, index) => {
             const Icon = project.icon
             return (
-              <div
+              <motion.div
                 key={project.title}
-                className="card-premium-hover p-8 animate-fade-in-up"
-                style={{ animationDelay: `${0.2 + index * 0.1}s` }}
+                className="card-premium-hover p-8"
+                variants={{
+                  hidden: { opacity: 0, y: 24 },
+                  show: { opacity: 1, y: 0, transition: { duration: 0.55, delay: index * 0.03 } },
+                }}
+                whileHover={{ y: -5 }}
               >
                 <div className="flex items-start justify-between mb-5">
                   <div className="flex items-center gap-3">
@@ -85,13 +104,13 @@ const DevOpsProjects = () => {
                       key={i}
                       className="text-gray-300 text-sm leading-relaxed flex items-start gap-2"
                     >
-                      <span className="text-primary-500 mt-1 text-lg">▹</span>
+                      <TerminalSquare className="w-4 h-4 text-primary-500 mt-0.5" />
                       <span className="font-light">{item}</span>
                     </li>
                   ))}
                 </ul>
 
-                <div className="mt-4 pt-4 border-t border-gray-800/60">
+                <div className="mt-4 pt-4 border-t border-primary-800/35">
                   <p className="text-xs text-gray-400 mb-2 font-medium uppercase tracking-wide">
                     Project Evidence
                   </p>
@@ -99,16 +118,16 @@ const DevOpsProjects = () => {
                     href={project.evidenceUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-primary-400 hover:text-primary-300 font-semibold text-sm transition-colors"
+                    className="inline-flex items-center gap-2 rounded-lg px-4 py-2 bg-primary-500/20 text-primary-100 border border-primary-500/40 hover:bg-primary-500/30 transition-all duration-300"
                   >
-                    <HiExternalLink className="w-4 h-4" />
+                    <ArrowUpRight className="w-4 h-4" />
                     <span>{project.evidenceLabel}</span>
                   </a>
                 </div>
-              </div>
+              </motion.div>
             )
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

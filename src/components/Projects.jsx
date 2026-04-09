@@ -1,184 +1,156 @@
-import { HiCode, HiExternalLink, HiGlobe } from 'react-icons/hi'
-import {
-  SiReact,
-  SiSpring,
-  SiNextdotjs,
-  SiTypescript,
-  SiTailwindcss,
-  SiNodedotjs,
-  SiExpress,
-  SiPostgresql,
-} from 'react-icons/si'
+import { motion } from 'framer-motion'
+import { ArrowUpRight, GitBranch } from 'lucide-react'
+import SectionFloatingObjects from './SectionFloatingObjects'
 
 const Projects = () => {
   const projects = [
     {
       title: 'Cinema Ticketing & Scheduling System',
-      description:
-        'A full-featured ticketing and movie scheduling system with an intuitive interface and efficient seat management algorithms. Built to handle complex scheduling requirements and provide seamless user experience for cinema operations.',
-      techStack: ['Java'],
+      shortDescription: 'Ticketing and movie scheduling platform with smart seat management.',
+      techStack: ['Java', 'Scheduling', 'Algorithms'],
       githubUrl: 'https://github.com/cedrick-cc/Cinema-System',
-      icon: HiCode,
-      color: 'text-orange-500',
+      imageUrl:
+        'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1400&q=80',
     },
     {
       title: 'Employment Management System',
-      description:
-        'A role-based employee management platform integrating secure authentication and lifecycle management. Features comprehensive user management, role-based access control, and streamlined HR operations.',
-      techStack: ['Spring Boot', 'React'],
+      shortDescription: 'Role-based employee lifecycle platform with secure access control.',
+      techStack: ['Spring Boot', 'React', 'RBAC'],
       githubUrl: 'https://github.com/cedrick-cc/Employment-Management-System',
-      icon: SiReact,
-      color: 'text-cyan-400',
+      imageUrl:
+        'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80',
     },
     {
       title: 'FoodWagen',
-      description:
-        'A competition meal management platform with real-time CRUD operations. Features pixel-perfect Figma implementation, advanced search with debounce, responsive grid layouts, and a complete modal system. Built with production-optimized Next.js architecture.',
+      shortDescription: 'Competition meal management interface with responsive UX and real-time updates.',
       techStack: ['Next.js', 'TypeScript', 'Tailwind CSS'],
       githubUrl: 'https://github.com/cedrick-cc/Foodwagen-frontend',
       liveSiteUrl: 'https://foodwagen-frontend-git-main-cedricks-projects-15b73633.vercel.app',
-      icon: SiNextdotjs,
-      color: 'text-gray-300',
+      imageUrl:
+        'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=80',
     },
     {
       title: 'SFH Rwanda Outreach Monitoring System',
-      description:
-        'A comprehensive digital platform designed to streamline community health outreach programs for Society for Family Health Rwanda. Enables centralized tracking and monitoring of outreach activities, volunteer management, beneficiary linkage, and advanced reporting with geographical coverage analytics and participation metrics.',
+      shortDescription: 'Outreach monitoring system for health program coordination and reporting.',
       techStack: ['In Development'],
       githubUrl: '#',
-      icon: HiCode,
-      color: 'text-primary-400',
       isComingSoon: true,
+      imageUrl:
+        'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1400&q=80',
     },
     {
       title: 'TaskFlow - Premium Task Management App',
-      description:
-        'A modern to-do list application with a glassmorphism UI and full-stack CRUD (React + Node/Express + PostgreSQL), including status/priority filtering and sorting.',
+      shortDescription:
+        'A modern to-do list application with glassmorphism UI and full-stack CRUD.',
       techStack: ['React', 'Node.js', 'Express', 'PostgreSQL', 'Tailwind CSS'],
       githubUrl: 'https://github.com/cedrick-cc/TO-DO-LIST.git',
-      icon: HiCode,
-      color: 'text-emerald-400',
+      imageUrl:
+        'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=1400&q=80',
     },
   ]
 
-  const getTechIcon = (tech) => {
-    const techIcons = {
-      Java: HiCode,
-      'Spring Boot': SiSpring,
-      React: SiReact,
-      'Next.js': SiNextdotjs,
-      TypeScript: SiTypescript,
-      'Tailwind CSS': SiTailwindcss,
-      'Node.js': SiNodedotjs,
-      Express: SiExpress,
-      PostgreSQL: SiPostgresql,
-    }
-    return techIcons[tech] || HiCode
-  }
-
   return (
-    <section id="projects" className="section-padding bg-gradient-to-b from-gray-950 via-gray-900/30 to-gray-950">
+    <section id="projects" className="section-padding bg-gradient-to-b from-dark-base via-dark-forest/25 to-dark-base relative overflow-hidden">
+      <SectionFloatingObjects placement="balanced" mood="vibrant" threeVariant="vibrantKnot" />
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7 }}
+        >
           <h2 className="text-5xl sm:text-6xl font-extrabold mb-4 text-gray-50">
             Featured <span className="text-gradient">Projects</span>
           </h2>
           <div className="w-24 h-1.5 bg-gradient-to-r from-primary-500 via-primary-600 to-primary-500 mx-auto rounded-full mb-4" />
           <p className="text-xl text-gray-400 max-w-3xl mx-auto font-light">
-            Production-ready applications showcasing full-stack development expertise
+            Interactive builds with strong engineering foundations
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+        <motion.div
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.15 }}
+          variants={{
+            hidden: {},
+            show: { transition: { staggerChildren: 0.08 } },
+          }}
+        >
           {projects.map((project, index) => {
-            const MainIcon = project.icon
             return (
-              <div
+              <motion.div
                 key={index}
-                className="group card-premium-hover p-10 animate-fade-in-up"
-                style={{ animationDelay: `${0.2 + index * 0.1}s` }}
+                className="group relative overflow-hidden rounded-2xl border border-primary-800/30 bg-dark-forest/20 min-h-[420px]"
+                variants={{
+                  hidden: { opacity: 0, y: 26 },
+                  show: { opacity: 1, y: 0, transition: { duration: 0.55 } },
+                }}
+                whileHover={{ y: -6 }}
               >
-                <div className="flex items-start justify-between mb-6">
-                  <div className="flex items-center gap-3">
-                    <div className="p-4 rounded-xl bg-gradient-to-br from-primary-900/40 to-primary-800/20 border border-primary-700/30 group-hover:border-primary-600/50 transition-all duration-300 group-hover:scale-110">
-                      <MainIcon className={`w-8 h-8 ${project.color}`} />
+                <div className="absolute inset-0 overflow-hidden">
+                  <img
+                    src={project.imageUrl}
+                    alt={project.title}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-dark-base/10 via-dark-base/50 to-dark-base/95" />
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_50%_30%,rgba(34,197,94,0.3),transparent_55%)]" />
+                </div>
+
+                <div className="relative z-10 h-full p-6 flex flex-col justify-end">
+                  <div className="rounded-xl border border-primary-700/35 bg-dark-base/45 backdrop-blur-md p-5 shadow-xl shadow-primary-950/70 transition-all duration-500 group-hover:border-primary-500/45 group-hover:shadow-primary-500/20">
+                    <h3 className="text-2xl font-bold text-gray-50 mb-2">{project.title}</h3>
+                    <p className="text-gray-300 mb-4 leading-relaxed">{project.shortDescription}</p>
+
+                    <div className="flex flex-wrap gap-2 mb-5">
+                      {project.techStack.map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-3 py-1 text-xs rounded-full border border-primary-700/35 text-primary-200 bg-primary-700/10"
+                        >
+                          {tech}
+                        </span>
+                      ))}
                     </div>
-                    {project.isComingSoon && (
-                      <span className="px-3 py-1.5 text-xs font-bold text-amber-400 bg-amber-900/30 border border-amber-700/30 rounded-full">
-                        Coming Soon
-                      </span>
-                    )}
+
+                    <div className="flex items-center gap-3">
+                      {project.isComingSoon ? (
+                        <span className="text-sm font-semibold text-amber-300">Coming Soon</span>
+                      ) : (
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 rounded-lg px-4 py-2 bg-primary-500/20 text-primary-100 border border-primary-500/40 hover:bg-primary-500/30 transition-all duration-300"
+                        >
+                          <GitBranch className="h-4 w-4" />
+                          <span>View Project</span>
+                          <ArrowUpRight className="h-4 w-4" />
+                        </a>
+                      )}
+                      {!project.isComingSoon && project.liveSiteUrl && (
+                        <a
+                          href={project.liveSiteUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 rounded-lg px-4 py-2 bg-primary-500/20 text-primary-100 border border-primary-500/40 hover:bg-primary-500/30 transition-all duration-300"
+                        >
+                          <GitBranch className="h-4 w-4" />
+                          Live Site
+                          <ArrowUpRight className="h-4 w-4" />
+                        </a>
+                      )}
+                    </div>
                   </div>
-                  {!project.isComingSoon && (
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-500 hover:text-primary-400 transition-all duration-300 p-2 rounded-lg hover:bg-gray-800/50"
-                      aria-label={`View ${project.title} on GitHub`}
-                    >
-                      <HiExternalLink className="w-6 h-6" />
-                    </a>
-                  )}
                 </div>
-
-                <h3 className="text-3xl font-bold text-gray-50 mb-4 group-hover:text-primary-400 transition-colors duration-300">
-                  {project.title}
-                </h3>
-
-                <p className="text-lg text-gray-300 mb-8 leading-relaxed font-light">
-                  {project.description}
-                </p>
-
-                <div className="flex flex-wrap gap-3 mb-8">
-                  {project.techStack.map((tech, techIndex) => {
-                    const TechIcon = getTechIcon(tech)
-                    return (
-                      <span
-                        key={techIndex}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-800/40 hover:bg-gray-800/60 text-sm text-gray-300 border border-gray-700/50 hover:border-primary-600/30 transition-all duration-300 group/tech"
-                      >
-                        <TechIcon className="w-4 h-4 group-hover/tech:scale-110 transition-transform" />
-                        <span className="font-medium">{tech}</span>
-                      </span>
-                    )
-                  })}
-                </div>
-
-                {project.isComingSoon ? (
-                  <div className="text-gray-400 text-sm font-medium italic">
-                    Project in development - Stay tuned!
-                  </div>
-                ) : (
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-primary-400 hover:text-primary-300 font-semibold transition-all duration-300 group/link"
-                    >
-                      <HiCode className="w-5 h-5 group-hover/link:translate-x-1 transition-transform" />
-                      <span>View on GitHub</span>
-                      <HiExternalLink className="w-4 h-4 opacity-0 group-hover/link:opacity-100 group-hover/link:translate-x-1 transition-all" />
-                    </a>
-                    {project.liveSiteUrl && (
-                      <a
-                        href={project.liveSiteUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 bg-primary-600/10 hover:bg-primary-600/20 border border-primary-600/30 hover:border-primary-600/50 text-primary-400 hover:text-primary-300 font-semibold rounded-lg transition-all duration-300 group/live"
-                      >
-                        <HiGlobe className="w-5 h-5 group-hover/live:scale-110 transition-transform" />
-                        <span>View Live Site</span>
-                        <HiExternalLink className="w-4 h-4 opacity-0 group-hover/live:opacity-100 group-hover/live:translate-x-1 transition-all" />
-                      </a>
-                    )}
-                  </div>
-                )}
-              </div>
+              </motion.div>
             )
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

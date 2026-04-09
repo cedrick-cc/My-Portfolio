@@ -1,4 +1,6 @@
-import { HiCalendar, HiLocationMarker } from 'react-icons/hi'
+import { motion } from 'framer-motion'
+import { BriefcaseBusiness, Calendar, ChevronRight, MapPin } from 'lucide-react'
+import SectionFloatingObjects from './SectionFloatingObjects'
 
 const Experience = () => {
   const experiences = [
@@ -42,9 +44,16 @@ const Experience = () => {
   ]
 
   return (
-    <section id="experience" className="section-padding bg-gradient-to-b from-gray-950 via-gray-900/30 to-gray-950">
+    <section id="experience" className="section-padding bg-gradient-to-b from-dark-base via-dark-forest/30 to-dark-base relative overflow-hidden">
+      <SectionFloatingObjects placement="right" mood="soft" threeVariant="ribbonRing" />
       <div className="max-w-6xl mx-auto">
-        <div className="mb-12 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+        <motion.div
+          className="mb-12"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7 }}
+        >
           <h2 className="text-5xl sm:text-6xl font-extrabold mb-4 text-gray-50">
             Work <span className="text-gradient">Experience</span>
           </h2>
@@ -52,50 +61,53 @@ const Experience = () => {
           <p className="text-xl text-gray-400 max-w-3xl font-light">
             Building scalable solutions and driving technical excellence
           </p>
-        </div>
+        </motion.div>
 
         <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-600 via-primary-500 to-primary-600 transform md:-translate-x-1/2" />
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-600/70 via-primary-500 to-primary-600/70 transform md:-translate-x-1/2" />
 
           <div className="space-y-12">
             {experiences.map((exp, index) => (
-              <div
+              <motion.div
                 key={index}
                 className={`relative flex flex-col md:flex-row ${
                   index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
                 } items-start md:items-center`}
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.65, delay: index * 0.08 }}
               >
-                {/* Timeline dot */}
-                <div className="absolute left-4 md:left-1/2 w-5 h-5 bg-gradient-to-br from-primary-500 to-primary-700 rounded-full border-4 border-gray-950 transform md:-translate-x-1/2 z-10 shadow-lg shadow-primary-500/50" />
+                <div className="absolute left-4 md:left-1/2 w-5 h-5 bg-gradient-to-br from-primary-400 to-primary-700 rounded-full border-4 border-dark-base transform md:-translate-x-1/2 z-10 shadow-lg shadow-primary-500/45" />
 
-                {/* Content card */}
                 <div
-                  className={`ml-14 md:ml-0 md:w-5/12 animate-fade-in-up ${
+                  className={`ml-14 md:ml-0 md:w-5/12 ${
                     index % 2 === 0 ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'
                   }`}
-                  style={{ animationDelay: `${0.2 + index * 0.1}s` }}
                 >
-                  <div className="card-premium-hover p-8">
+                  <motion.div className="card-premium-hover p-8" whileHover={{ y: -4 }}>
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-5">
                       <div>
-                        <h3 className="text-2xl font-bold text-primary-400 mb-1 group-hover:text-primary-300 transition-colors">
+                        <h3 className="text-2xl font-bold text-primary-300 mb-1 group-hover:text-primary-200 transition-colors">
                           {exp.title}
                         </h3>
                         <div className="flex flex-wrap items-center gap-3 text-gray-300">
-                          <span className="font-bold text-lg">{exp.company}</span>
+                          <span className="font-bold text-lg inline-flex items-center gap-2">
+                            <BriefcaseBusiness className="w-4 h-4 text-primary-400" />
+                            {exp.company}
+                          </span>
                           <span className="flex items-center gap-1.5 text-sm text-gray-400">
-                            <HiLocationMarker className="w-4 h-4 text-primary-400" />
+                            <MapPin className="w-4 h-4 text-primary-400" />
                             {exp.location}
                           </span>
                         </div>
                       </div>
-                      <span className="text-sm text-gray-300 font-semibold bg-gradient-to-r from-primary-900/40 to-primary-800/20 border border-primary-700/30 px-4 py-1.5 rounded-full mt-2 sm:mt-0">
+                      <span className="text-sm text-gray-300 font-semibold bg-gradient-to-r from-primary-900/35 to-primary-800/20 border border-primary-700/30 px-4 py-1.5 rounded-full mt-2 sm:mt-0 inline-flex items-center gap-1.5">
+                        <Calendar className="w-4 h-4 text-primary-300" />
                         {exp.period}
                       </span>
                     </div>
 
-                    {/* Key Highlights */}
                     {index === 0 && (
                       <div className="mb-5 p-4 rounded-lg bg-primary-900/20 border border-primary-700/30">
                         <p className="text-sm font-semibold text-primary-300 mb-1">Key Focus:</p>
@@ -109,14 +121,14 @@ const Experience = () => {
                           key={idx}
                           className="text-gray-300 text-base leading-relaxed flex items-start gap-3 group/item"
                         >
-                          <span className="text-primary-500 mt-1.5 text-lg group-hover/item:scale-110 transition-transform">▸</span>
+                          <ChevronRight className="w-4 h-4 mt-1.5 text-primary-500 group-hover/item:scale-110 transition-transform" />
                           <span className="font-light">{responsibility}</span>
                         </li>
                       ))}
                     </ul>
-                  </div>
+                  </motion.div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

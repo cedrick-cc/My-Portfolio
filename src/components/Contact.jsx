@@ -1,7 +1,9 @@
 import { useState } from 'react'
-import { HiMail, HiPhone, HiLocationMarker } from 'react-icons/hi'
-import { SiLinkedin, SiGithub } from 'react-icons/si'
+import { motion } from 'framer-motion'
+import { ArrowUpRight, Mail, MapPin, Phone } from 'lucide-react'
+import { SiGithub, SiLinkedin } from 'react-icons/si'
 import emailjs from '@emailjs/browser'
+import SectionFloatingObjects from './SectionFloatingObjects'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -62,25 +64,22 @@ const Contact = () => {
   }
   const contactInfo = [
     {
-      icon: HiMail,
+      icon: Mail,
       label: 'Email',
       value: 'nkurunzizacedrick2@gmail.com',
       href: 'mailto:nkurunzizacedrick2@gmail.com',
-      color: 'text-blue-400',
     },
     {
-      icon: HiPhone,
+      icon: Phone,
       label: 'Phone',
       value: '+(250) 781774078',
       href: 'tel:+250781774078',
-      color: 'text-green-400',
     },
     {
-      icon: HiLocationMarker,
+      icon: MapPin,
       label: 'Location',
       value: 'Kigali, Rwanda',
       href: null,
-      color: 'text-red-400',
     },
   ]
 
@@ -89,20 +88,25 @@ const Contact = () => {
       icon: SiLinkedin,
       label: 'LinkedIn',
       href: 'https://www.linkedin.com/in/cedrick-nkurunziza/',
-      color: 'text-blue-500',
     },
     {
       icon: SiGithub,
       label: 'GitHub',
       href: 'https://github.com/cedrick-cc',
-      color: 'text-gray-300',
     },
   ]
 
   return (
-    <section id="contact" className="section-padding bg-gradient-to-b from-gray-950 via-gray-900/30 to-gray-950">
+    <section id="contact" className="section-padding bg-gradient-to-b from-dark-base via-dark-forest/30 to-dark-base relative overflow-hidden">
+      <SectionFloatingObjects placement="balanced" mood="vibrant" threeVariant="ribbonRing" />
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7 }}
+        >
           <h2 className="text-5xl sm:text-6xl font-extrabold mb-4 text-gray-50">
             Get In <span className="text-gradient">Touch</span>
           </h2>
@@ -110,11 +114,16 @@ const Contact = () => {
           <p className="text-xl text-gray-400 max-w-3xl mx-auto font-light">
             Open to opportunities and collaborations
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 gap-10 lg:gap-12">
-          {/* Contact Information */}
-          <div className="space-y-8 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+          <motion.div
+            className="space-y-8"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7, delay: 0.05 }}
+          >
             <div>
               <h3 className="text-3xl font-bold text-gray-50 mb-4">
                 Contact Information
@@ -129,8 +138,12 @@ const Contact = () => {
               {contactInfo.map((info, index) => {
                 const Icon = info.icon
                 const content = (
-                  <div className="flex items-start gap-5 p-6 rounded-xl card-premium group cursor-pointer">
-                    <div className={`p-3 rounded-xl bg-gray-800/50 ${info.color} group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
+                  <motion.div
+                    className="flex items-start gap-5 p-6 rounded-xl card-premium group cursor-pointer"
+                    whileHover={{ y: -2, scale: 1.01 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <div className="p-3 rounded-xl bg-dark-base/70 text-primary-300 group-hover:scale-110 group-hover:rotate-3 group-hover:text-primary-200 transition-all duration-300">
                       <Icon className="w-6 h-6" />
                     </div>
                     <div className="flex-1">
@@ -138,7 +151,7 @@ const Contact = () => {
                       {info.href ? (
                         <a
                           href={info.href}
-                          className="text-lg text-gray-200 hover:text-primary-400 transition-colors font-semibold"
+                          className="text-lg text-gray-200 hover:text-primary-300 transition-colors font-semibold"
                         >
                           {info.value}
                         </a>
@@ -146,7 +159,7 @@ const Contact = () => {
                         <p className="text-lg text-gray-200 font-semibold">{info.value}</p>
                       )}
                     </div>
-                  </div>
+                  </motion.div>
                 )
 
                 return info.href ? (
@@ -159,7 +172,6 @@ const Contact = () => {
               })}
             </div>
 
-            {/* Social Links */}
             <div className="pt-6">
               <h4 className="text-xl font-bold text-gray-200 mb-5">Connect With Me</h4>
               <div className="flex gap-4">
@@ -174,19 +186,25 @@ const Contact = () => {
                       className="flex items-center gap-3 px-6 py-3 rounded-xl card-premium group hover-lift"
                       aria-label={social.label}
                     >
-                      <Icon className={`w-6 h-6 ${social.color} group-hover:scale-110 transition-transform`} />
-                      <span className="text-gray-300 group-hover:text-primary-400 transition-colors font-semibold">
+                      <Icon className="w-6 h-6 text-primary-300 group-hover:text-primary-200 group-hover:scale-110 transition-transform" />
+                      <span className="text-gray-300 group-hover:text-primary-300 transition-colors font-semibold">
                         {social.label}
                       </span>
+                      <ArrowUpRight className="w-4 h-4 text-primary-300 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                     </a>
                   )
                 })}
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Contact Form */}
-          <div className="card-premium p-10 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+          <motion.div
+            className="card-premium p-10"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+          >
             <h3 className="text-3xl font-bold text-gray-50 mb-8">
               Send a Message
             </h3>
@@ -206,7 +224,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   disabled={isSubmitting}
-                  className="w-full px-5 py-4 bg-gray-800/50 border border-gray-700/50 rounded-xl text-gray-100 placeholder-gray-500 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all font-light disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full px-5 py-4 bg-dark-base/55 border border-primary-800/35 rounded-xl text-gray-100 placeholder-gray-500 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all font-light disabled:opacity-50 disabled:cursor-not-allowed"
                   placeholder="Your name"
                 />
               </div>
@@ -222,7 +240,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   disabled={isSubmitting}
-                  className="w-full px-5 py-4 bg-gray-800/50 border border-gray-700/50 rounded-xl text-gray-100 placeholder-gray-500 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all font-light disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full px-5 py-4 bg-dark-base/55 border border-primary-800/35 rounded-xl text-gray-100 placeholder-gray-500 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all font-light disabled:opacity-50 disabled:cursor-not-allowed"
                   placeholder="your.email@example.com"
                 />
               </div>
@@ -238,13 +256,12 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   disabled={isSubmitting}
-                  className="w-full px-5 py-4 bg-gray-800/50 border border-gray-700/50 rounded-xl text-gray-100 placeholder-gray-500 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all resize-none font-light disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full px-5 py-4 bg-dark-base/55 border border-primary-800/35 rounded-xl text-gray-100 placeholder-gray-500 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all resize-none font-light disabled:opacity-50 disabled:cursor-not-allowed"
                   placeholder="Your message..."
                 />
               </div>
-              {/* Status Messages */}
               {submitStatus === 'success' && (
-                <div className="p-4 rounded-xl bg-green-900/30 border border-green-700/50 text-green-300">
+                <div className="p-4 rounded-xl bg-primary-900/25 border border-primary-700/50 text-primary-200">
                   <p className="font-semibold">✓ Message sent successfully!</p>
                   <p className="text-sm mt-1">I'll get back to you soon.</p>
                 </div>
@@ -260,7 +277,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full px-8 py-4 bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-500 hover:to-primary-600 text-white font-bold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-primary-500/50 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                className="w-full px-8 py-4 bg-gradient-to-r from-primary-600 to-primary-500 text-white font-bold rounded-xl transition-all duration-300 transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary-500/40 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               >
                 {isSubmitting ? (
                   <span className="flex items-center justify-center gap-2">
@@ -275,7 +292,7 @@ const Contact = () => {
                 )}
               </button>
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
