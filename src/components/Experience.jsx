@@ -108,13 +108,6 @@ const Experience = () => {
                       </span>
                     </div>
 
-                    {index === 0 && (
-                      <div className="mb-5 p-4 rounded-lg bg-primary-900/20 border border-primary-700/30">
-                        <p className="text-sm font-semibold text-primary-300 mb-1">Key Focus:</p>
-                        <p className="text-sm text-gray-300">Full-stack development • RESTful APIs • Code quality • Team collaboration</p>
-                      </div>
-                    )}
-
                     <ul className="space-y-3">
                       {exp.responsibilities.map((responsibility, idx) => (
                         <li
