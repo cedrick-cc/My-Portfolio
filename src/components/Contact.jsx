@@ -224,7 +224,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   disabled={isSubmitting}
-                  className="w-full px-5 py-4 bg-dark-base/55 border border-primary-800/35 rounded-xl text-gray-100 placeholder-gray-500 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all font-light disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full px-5 py-4 glass-input rounded-xl text-gray-100 placeholder-gray-500 font-light disabled:opacity-50 disabled:cursor-not-allowed"
                   placeholder="Your name"
                 />
               </div>
@@ -240,7 +240,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   disabled={isSubmitting}
-                  className="w-full px-5 py-4 bg-dark-base/55 border border-primary-800/35 rounded-xl text-gray-100 placeholder-gray-500 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all font-light disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full px-5 py-4 glass-input rounded-xl text-gray-100 placeholder-gray-500 font-light disabled:opacity-50 disabled:cursor-not-allowed"
                   placeholder="your.email@example.com"
                 />
               </div>
@@ -256,7 +256,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   disabled={isSubmitting}
-                  className="w-full px-5 py-4 bg-dark-base/55 border border-primary-800/35 rounded-xl text-gray-100 placeholder-gray-500 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all resize-none font-light disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full px-5 py-4 glass-input rounded-xl text-gray-100 placeholder-gray-500 resize-none font-light disabled:opacity-50 disabled:cursor-not-allowed"
                   placeholder="Your message..."
                 />
               </div>
@@ -277,7 +277,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full px-8 py-4 bg-gradient-to-r from-primary-600 to-primary-500 text-white font-bold rounded-xl transition-all duration-300 transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary-500/40 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                className="w-full px-8 py-4 glass-button-primary text-white font-bold rounded-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               >
                 {isSubmitting ? (
                   <span className="flex items-center justify-center gap-2">

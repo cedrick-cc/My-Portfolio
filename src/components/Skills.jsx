@@ -107,7 +107,7 @@ const Skills = () => {
                   return (
                     <motion.div
                       key={skill.name}
-                      className="flex flex-col items-center p-5 rounded-xl bg-dark-forest/35 hover:bg-dark-forest/55 border border-primary-800/25 hover:border-primary-500/45 transition-all duration-300 group cursor-default hover:shadow-lg hover:shadow-primary-500/20"
+                      className="flex flex-col items-center p-5 rounded-xl glass-pill group cursor-default"
                       whileHover={{ scale: 1.03, y: -2 }}
                     >
                       <div className="p-3 rounded-lg bg-dark-base/70 group-hover:bg-dark-base/90 transition-colors mb-3">

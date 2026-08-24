@@ -118,7 +118,7 @@ const DevOpsProjects = () => {
                     href={project.evidenceUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-lg px-4 py-2 bg-primary-500/20 text-primary-100 border border-primary-500/40 hover:bg-primary-500/30 transition-all duration-300"
+                    className="inline-flex items-center gap-2 rounded-xl px-4 py-2 glass-button-secondary text-primary-100"
                   >
                     <ArrowUpRight className="w-4 h-4" />
                     <span>{project.evidenceLabel}</span>

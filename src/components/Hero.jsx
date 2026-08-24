@@ -49,6 +49,19 @@ const Hero = () => {
       </Suspense>
 
       <div className="relative z-10 max-w-5xl mx-auto text-center">
+        <FadeUp delay={0.02} className="flex justify-center mb-8">
+          <div className="relative group cursor-pointer">
+            <div className="absolute -inset-2 bg-gradient-to-tr from-primary-500/30 to-primary-400/20 rounded-full blur-xl opacity-75 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="relative p-1.5 bg-dark-forest/50 backdrop-blur-xl border border-primary-500/30 rounded-full shadow-2xl shadow-primary-500/20 group-hover:border-primary-400/60 transition-all duration-500">
+              <img
+                src="/profile.jpg"
+                alt="Cedrick Nkurunziza"
+                className="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover object-top ring-2 ring-primary-500/20 group-hover:scale-105 transition-transform duration-500 shadow-inner"
+              />
+              <span className="absolute bottom-1.5 right-1.5 w-4 h-4 bg-primary-500 rounded-full border-2 border-dark-base ring-2 ring-primary-400/40 animate-pulse" title="Available for opportunities" />
+            </div>
+          </div>
+        </FadeUp>
         <FadeUp delay={0.05} className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full glass-effect mb-10 group">
           <Code2 className="w-4 h-4 text-primary-400 group-hover:rotate-12 transition-transform duration-300" />
           <span className="text-sm font-medium text-primary-300 tracking-wide">
@@ -95,7 +108,7 @@ const Hero = () => {
             onClick={() => scrollToSection('projects')}
             whileHover={{ scale: 1.03, y: -1 }}
             whileTap={{ scale: 0.98 }}
-            className="group relative px-10 py-4 bg-gradient-to-r from-primary-600 to-primary-500 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-primary-500/40 overflow-hidden"
+            className="group relative px-10 py-4 glass-button-primary text-white font-semibold rounded-xl overflow-hidden"
           >
             <span className="relative z-10 flex items-center gap-2">
               View Projects
@@ -107,7 +120,7 @@ const Hero = () => {
             onClick={() => scrollToSection('contact')}
             whileHover={{ scale: 1.03, y: -1 }}
             whileTap={{ scale: 0.98 }}
-            className="px-10 py-4 bg-dark-base/40 border-2 border-primary-600/50 hover:border-primary-400 text-primary-300 hover:text-primary-200 font-semibold rounded-xl transition-all duration-300 hover:bg-primary-600/10 backdrop-blur-sm"
+            className="px-10 py-4 glass-button-secondary text-primary-300 hover:text-primary-200 font-semibold rounded-xl"
           >
             <span className="inline-flex items-center gap-2">
               <Sparkles className="w-4 h-4" />

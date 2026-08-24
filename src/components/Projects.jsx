@@ -110,7 +110,7 @@ const Projects = () => {
                       {project.techStack.map((tech) => (
                         <span
                           key={tech}
-                          className="px-3 py-1 text-xs rounded-full border border-primary-700/35 text-primary-200 bg-primary-700/10"
+                          className="px-3 py-1 text-xs rounded-full glass-pill text-primary-200"
                         >
                           {tech}
                         </span>
@@ -125,7 +125,7 @@ const Projects = () => {
                           href={project.githubUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 rounded-lg px-4 py-2 bg-primary-500/20 text-primary-100 border border-primary-500/40 hover:bg-primary-500/30 transition-all duration-300"
+                          className="inline-flex items-center gap-2 rounded-xl px-4 py-2 glass-button-secondary text-primary-100"
                         >
                           <GitBranch className="h-4 w-4" />
                           <span>View Project</span>
@@ -137,7 +137,7 @@ const Projects = () => {
                           href={project.liveSiteUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 rounded-lg px-4 py-2 bg-primary-500/20 text-primary-100 border border-primary-500/40 hover:bg-primary-500/30 transition-all duration-300"
+                          className="inline-flex items-center gap-2 rounded-xl px-4 py-2 glass-button-secondary text-primary-100"
                         >
                           <GitBranch className="h-4 w-4" />
                           Live Site
