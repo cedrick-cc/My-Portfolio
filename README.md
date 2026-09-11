@@ -20,8 +20,7 @@ A modern, professional portfolio website showcasing my work as a Software Develo
 4. **Experience** - Work history with timeline layout
 5. **Projects** - Featured projects with GitHub links
 6. **Education** - Academic background and coursework
-7. **Certifications** - Professional certifications
-8. **Contact** - Contact information and form
+7. **Contact** - Contact information and form
 
 ## 🛠️ Tech Stack
 
@@ -189,7 +188,7 @@ portfolio/
 ├── src/
 │   ├── components/      # React components
 │   │   ├── About.jsx
-│   │   ├── Certifications.jsx
+│   │
 │   │   ├── Contact.jsx
 │   │   ├── Education.jsx
 │   │   ├── Experience.jsx
@@ -256,5 +255,5 @@ This project is open source and available under the MIT License.
 
 ---
 
-Built with ❤️ using React and Tailwind CSS
+
 
