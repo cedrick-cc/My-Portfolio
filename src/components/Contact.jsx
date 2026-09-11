@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowUpRight, Mail, MapPin, Phone } from 'lucide-react'
+import { ArrowUpRight, Mail, MapPin, Send } from 'lucide-react'
 import { SiGithub, SiLinkedin } from 'react-icons/si'
 import emailjs from '@emailjs/browser'
 import SectionFloatingObjects from './SectionFloatingObjects'
@@ -12,14 +12,13 @@ const Contact = () => {
     message: '',
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState(null) // 'success' | 'error' | null
+  const [submitStatus, setSubmitStatus] = useState(null)
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     })
-    // Clear status when user starts typing
     if (submitStatus) setSubmitStatus(null)
   }
 
@@ -28,13 +27,12 @@ const Contact = () => {
     setIsSubmitting(true)
     setSubmitStatus(null)
 
-    try {
-      // EmailJS configuration
-      // You'll need to replace these with your actual EmailJS credentials
-      const serviceId = 'service_h02oq5e'
-      const templateId = 'template_hdifrlh'
-      const publicKey = 'pZ0NHj2yeFLzqA3mQ'
+    // User's EmailJS Credentials
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_h02oq5e'
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_hdifrlh'
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'pZ0NHj2yeFLzqA3mQ'
 
+    try {
       await emailjs.send(
         serviceId,
         templateId,
@@ -46,34 +44,22 @@ const Contact = () => {
         },
         publicKey
       )
-
       setSubmitStatus('success')
       setFormData({ name: '', email: '', message: '' })
-      
-      // Clear success message after 5 seconds
-      setTimeout(() => setSubmitStatus(null), 5000)
     } catch (error) {
       console.error('EmailJS error:', error)
       setSubmitStatus('error')
-      
-      // Clear error message after 5 seconds
-      setTimeout(() => setSubmitStatus(null), 5000)
     } finally {
       setIsSubmitting(false)
     }
   }
+
   const contactInfo = [
     {
       icon: Mail,
       label: 'Email',
       value: 'nkurunzizacedrick2@gmail.com',
       href: 'mailto:nkurunzizacedrick2@gmail.com',
-    },
-    {
-      icon: Phone,
-      label: 'Phone',
-      value: '+(250) 781774078',
-      href: 'tel:+250781774078',
     },
     {
       icon: MapPin,
@@ -85,38 +71,38 @@ const Contact = () => {
 
   const socialLinks = [
     {
-      icon: SiLinkedin,
-      label: 'LinkedIn',
-      href: 'https://www.linkedin.com/in/cedrick-nkurunziza/',
-    },
-    {
       icon: SiGithub,
       label: 'GitHub',
       href: 'https://github.com/cedrick-cc',
+    },
+    {
+      icon: SiLinkedin,
+      label: 'LinkedIn',
+      href: 'https://www.linkedin.com/in/cedrick-nkurunziza',
     },
   ]
 
   return (
     <section id="contact" className="section-padding bg-gradient-to-b from-dark-base via-dark-forest/30 to-dark-base relative overflow-hidden">
-      <SectionFloatingObjects placement="balanced" mood="vibrant" threeVariant="ribbonRing" />
+      <SectionFloatingObjects placement="right" mood="vibrant" threeVariant="vibrantKnot" />
+      
       <div className="max-w-7xl mx-auto">
         <motion.div
-          className="text-center mb-12"
+          className="text-center mb-16"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7 }}
         >
-          <h2 className="text-5xl sm:text-6xl font-extrabold mb-4 text-gray-50">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4 text-gray-50">
             Get In <span className="text-gradient">Touch</span>
           </h2>
-          <div className="w-24 h-1.5 bg-gradient-to-r from-primary-500 via-primary-600 to-primary-500 mx-auto rounded-full mb-4" />
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto font-light">
-            Open to opportunities and collaborations
-          </p>
+          <div className="w-24 h-1.5 bg-gradient-to-r from-primary-500 via-primary-600 to-primary-500 mx-auto rounded-full" />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-10 lg:gap-12">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          
+          {/* Left Column: Conversational Coffee Panel */}
           <motion.div
             className="space-y-8"
             initial={{ opacity: 0, y: 24 }}
@@ -124,13 +110,12 @@ const Contact = () => {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.7, delay: 0.05 }}
           >
-            <div>
-              <h3 className="text-3xl font-bold text-gray-50 mb-4">
-                Contact Information
+            <div className="card-premium p-8 sm:p-10 space-y-4">
+              <h3 className="text-2xl sm:text-3xl font-black text-gray-50 leading-tight">
+                Let's grab a coffee and talk about... well, anything.
               </h3>
-              <p className="text-xl text-gray-300 leading-relaxed font-light">
-                I'm always open to discussing new opportunities, interesting projects, 
-                or just connecting with fellow developers. Feel free to reach out!
+              <p className="text-gray-300 text-base sm:text-lg leading-relaxed font-light">
+                I love building interesting things, but I also love genuine conversations about life, faith, and everything in between. If you're looking for a fellow dev to collaborate with or just someone cool to talk to, hit that button and let's link up!
               </p>
             </div>
 
@@ -140,14 +125,14 @@ const Contact = () => {
                 const content = (
                   <motion.div
                     className="flex items-start gap-5 p-6 rounded-xl card-premium group cursor-pointer"
-                    whileHover={{ y: -2, scale: 1.01 }}
+                    whileHover={{ y: -2 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <div className="p-3 rounded-xl bg-dark-base/70 text-primary-300 group-hover:scale-110 group-hover:rotate-3 group-hover:text-primary-200 transition-all duration-300">
+                    <div className="p-3.5 rounded-xl bg-dark-base/70 text-primary-300 group-hover:scale-110 group-hover:text-primary-200 transition-all">
                       <Icon className="w-6 h-6" />
                     </div>
                     <div className="flex-1">
-                      <p className="text-sm text-gray-400 mb-1.5 font-medium uppercase tracking-wide">{info.label}</p>
+                      <p className="text-xs text-gray-400 mb-1 font-semibold uppercase tracking-wider">{info.label}</p>
                       {info.href ? (
                         <a
                           href={info.href}
@@ -172,9 +157,9 @@ const Contact = () => {
               })}
             </div>
 
-            <div className="pt-6">
-              <h4 className="text-xl font-bold text-gray-200 mb-5">Connect With Me</h4>
-              <div className="flex gap-4">
+            <div className="pt-2">
+              <h4 className="text-lg font-bold text-gray-200 mb-4">Connect With Me</h4>
+              <div className="flex flex-wrap gap-4">
                 {socialLinks.map((social, index) => {
                   const Icon = social.icon
                   return (
@@ -183,10 +168,10 @@ const Contact = () => {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 px-6 py-3 rounded-xl card-premium group hover-lift"
+                      className="flex items-center gap-3 px-6 py-3.5 rounded-xl card-premium group hover-lift"
                       aria-label={social.label}
                     >
-                      <Icon className="w-6 h-6 text-primary-300 group-hover:text-primary-200 group-hover:scale-110 transition-transform" />
+                      <Icon className="w-5 h-5 text-primary-300 group-hover:text-primary-200 group-hover:scale-110 transition-transform" />
                       <span className="text-gray-300 group-hover:text-primary-300 transition-colors font-semibold">
                         {social.label}
                       </span>
@@ -198,22 +183,21 @@ const Contact = () => {
             </div>
           </motion.div>
 
+          {/* Right Column: Contact Form */}
           <motion.div
-            className="card-premium p-10"
+            className="card-premium p-8 sm:p-10"
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.7, delay: 0.1 }}
           >
-            <h3 className="text-3xl font-bold text-gray-50 mb-8">
+            <h3 className="text-2xl sm:text-3xl font-black text-gray-50 mb-8">
               Send a Message
             </h3>
-            <form
-              onSubmit={handleSubmit}
-              className="space-y-6"
-            >
+            
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-semibold text-gray-300 mb-3">
+                <label htmlFor="name" className="block text-sm font-semibold text-gray-300 mb-2.5">
                   Name
                 </label>
                 <input
@@ -228,8 +212,9 @@ const Contact = () => {
                   placeholder="Your name"
                 />
               </div>
+
               <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-gray-300 mb-3">
+                <label htmlFor="email" className="block text-sm font-semibold text-gray-300 mb-2.5">
                   Email
                 </label>
                 <input
@@ -244,8 +229,9 @@ const Contact = () => {
                   placeholder="your.email@example.com"
                 />
               </div>
+
               <div>
-                <label htmlFor="message" className="block text-sm font-semibold text-gray-300 mb-3">
+                <label htmlFor="message" className="block text-sm font-semibold text-gray-300 mb-2.5">
                   Message
                 </label>
                 <textarea
@@ -260,8 +246,9 @@ const Contact = () => {
                   placeholder="Your message..."
                 />
               </div>
+
               {submitStatus === 'success' && (
-                <div className="p-4 rounded-xl bg-primary-900/25 border border-primary-700/50 text-primary-200">
+                <div className="p-4 rounded-xl bg-primary-900/30 border border-primary-600/50 text-primary-200">
                   <p className="font-semibold">✓ Message sent successfully!</p>
                   <p className="text-sm mt-1">I'll get back to you soon.</p>
                 </div>
@@ -277,7 +264,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full px-8 py-4 glass-button-primary text-white font-bold rounded-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                className="w-full px-8 py-4 glass-button-primary text-white font-bold rounded-xl flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
                   <span className="flex items-center justify-center gap-2">
@@ -288,11 +275,15 @@ const Contact = () => {
                     Sending...
                   </span>
                 ) : (
-                  'Send Message'
+                  <>
+                    <Send className="w-4 h-4" />
+                    <span>Send Message</span>
+                  </>
                 )}
               </button>
             </form>
           </motion.div>
+
         </div>
       </div>
     </section>
@@ -300,4 +291,3 @@ const Contact = () => {
 }
 
 export default Contact
-

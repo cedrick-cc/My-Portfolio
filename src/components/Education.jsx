@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { BookOpenText, Calendar, GraduationCap, MapPin } from 'lucide-react'
+import { BookOpenText, Calendar, GraduationCap, MapPin, Award } from 'lucide-react'
 import SectionFloatingObjects from './SectionFloatingObjects'
 
 const Education = () => {
@@ -7,84 +7,71 @@ const Education = () => {
     <section id="education" className="section-padding bg-gradient-to-b from-dark-base via-dark-forest/20 to-dark-base relative overflow-hidden">
       <SectionFloatingObjects placement="left" mood="soft" threeVariant="softOrb" />
       <div className="max-w-5xl mx-auto">
+        
         <motion.div
-          className="mb-12"
+          className="text-center mb-16"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7 }}
         >
-          <h2 className="text-5xl sm:text-6xl font-extrabold mb-4 text-gray-50">
-            <span className="text-gradient">Education</span>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4 text-gray-50">
+            Academic <span className="text-gradient">Foundation</span>
           </h2>
-          <div className="w-24 h-1.5 bg-gradient-to-r from-primary-500 via-primary-600 to-primary-500 rounded-full mb-4" />
-          <p className="text-xl text-gray-400 max-w-3xl font-light">
-            Bachelor's in Information Technology with hands-on project experience
+          <div className="w-24 h-1.5 bg-gradient-to-r from-primary-500 via-primary-600 to-primary-500 mx-auto rounded-full mb-4" />
+          <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto font-light">
+            Formal engineering education in Information Technology and Computer Systems
           </p>
         </motion.div>
 
+        {/* Liquid Glass Academic Panel */}
         <motion.div
-          className="card-premium-hover p-10"
+          className="card-premium-hover p-8 sm:p-12 relative overflow-hidden group"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7, delay: 0.08 }}
-          whileHover={{ y: -4 }}
+          whileHover={{ y: -5 }}
         >
-          <div className="flex items-start gap-6 mb-8">
-            <div className="p-5 rounded-xl bg-gradient-to-br from-primary-900/40 to-primary-800/20 border border-primary-700/30 shadow-lg shadow-primary-500/10">
-              <GraduationCap className="w-8 h-8 text-primary-300" />
+          <div className="flex flex-col md:flex-row items-start gap-8">
+            <div className="p-5 rounded-2xl glass-pill bg-primary-900/40 text-primary-300 shadow-xl">
+              <GraduationCap className="w-10 h-10" />
             </div>
-            <div className="flex-1">
-              <h3 className="text-3xl font-bold text-gray-50 mb-4">
+
+            <div className="flex-1 space-y-4">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <span className="glass-pill px-4 py-1.5 rounded-full text-xs font-mono font-bold text-primary-300 flex items-center gap-2">
+                  <Calendar className="w-3.5 h-3.5 text-primary-400" />
+                  Graduation — 2026
+                </span>
+                <span className="glass-pill px-4 py-1.5 rounded-full text-xs font-mono font-bold text-amber-300 flex items-center gap-2">
+                  <Award className="w-3.5 h-3.5 text-amber-400" />
+                  GPA: 3.2 / 4.0
+                </span>
+              </div>
+
+              <h3 className="text-2xl sm:text-3xl font-black text-gray-50 leading-tight">
                 Bachelor of Science in Information Technology
               </h3>
-              <div className="flex flex-wrap items-center gap-6 text-gray-300 mb-6">
-                <span className="flex items-center gap-2 text-lg">
-                  <BookOpenText className="w-5 h-5 text-primary-300" />
-                  <span className="font-medium">Adventist University of Central Africa</span>
+
+              <div className="flex flex-wrap items-center gap-6 text-gray-300 pt-2 font-medium">
+                <span className="flex items-center gap-2 text-base text-primary-300">
+                  <BookOpenText className="w-5 h-5 text-primary-400" />
+                  Adventist University of Central Africa (AUCA)
                 </span>
-                <span className="flex items-center gap-2">
-                  <MapPin className="w-5 h-5 text-primary-300" />
+                <span className="flex items-center gap-2 text-sm text-gray-400">
+                  <MapPin className="w-4 h-4 text-primary-400" />
                   Kigali, Rwanda
                 </span>
-                <span className="flex items-center gap-2">
-                  <Calendar className="w-5 h-5 text-primary-300" />
-                  Graduation - 2026
-                </span>
               </div>
-              <div className="inline-block px-6 py-3 bg-gradient-to-r from-primary-900/40 to-primary-800/20 border border-primary-700/30 rounded-xl">
-                <span className="text-primary-300 font-bold text-lg">GPA: 3.2/4.0</span>
-              </div>
-            </div>
-          </div>
 
-          <div className="mt-10 pt-8 border-t border-primary-800/30">
-            <h4 className="text-2xl font-bold text-gray-200 mb-6">
-              Relevant Coursework & Projects
-            </h4>
-            <div className="space-y-4">
-              <div className="bg-dark-forest/40 rounded-xl p-6 border border-primary-700/25 hover:border-primary-500/40 transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/15">
-                <p className="text-gray-300 text-base leading-relaxed font-light">
-                  <span className="font-bold text-primary-400">Cinema Ticketing & Scheduling System:</span>{' '}
-                  Developed a full-featured ticketing and movie scheduling system using Java with an intuitive interface 
-                  and efficient seat management algorithms.
-                </p>
-              </div>
-              <div className="bg-dark-forest/40 rounded-xl p-6 border border-primary-700/25 hover:border-primary-500/40 transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/15">
-                <p className="text-gray-300 text-base leading-relaxed font-light">
-                  <span className="font-bold text-primary-400">Employment Management System:</span>{' '}
-                  Built a role-based employee management platform integrating secure authentication and lifecycle 
-                  management using Spring Boot and React.
-                </p>
-              </div>
             </div>
           </div>
         </motion.div>
+
       </div>
     </section>
   )
 }
 
 export default Education
-

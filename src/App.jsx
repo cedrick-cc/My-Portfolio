@@ -1,13 +1,11 @@
 import { useState, useEffect } from 'react'
 import { motion, useSpring } from 'framer-motion'
 import Hero from './components/Hero'
-import About from './components/About'
 import Skills from './components/Skills'
 import Experience from './components/Experience'
-import Projects from './components/Projects'
 import DevOpsProjects from './components/DevOpsProjects'
+import Projects from './components/Projects'
 import Education from './components/Education'
-import Certifications from './components/Certifications'
 import Contact from './components/Contact'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -54,15 +52,16 @@ function App() {
   }, [glowX, glowY])
 
   return (
-    <div className="min-h-screen bg-dark-base relative overflow-x-hidden">
+    <div className="min-h-screen bg-dark-base relative overflow-x-hidden text-gray-100">
+      {/* Interactive Mouse Ambient Glow */}
       <motion.div
         aria-hidden="true"
-        className="pointer-events-none fixed z-0 h-[360px] w-[360px] rounded-full blur-3xl"
+        className="pointer-events-none fixed z-0 h-[380px] w-[380px] rounded-full blur-3xl"
         style={{
           left: glowX,
           top: glowY,
           background:
-            'radial-gradient(circle at center, rgba(74, 222, 128, 0.24) 0%, rgba(34, 197, 94, 0.12) 40%, rgba(0,0,0,0) 70%)',
+            'radial-gradient(circle at center, rgba(74, 222, 128, 0.22) 0%, rgba(34, 197, 94, 0.1) 40%, rgba(0,0,0,0) 70%)',
           opacity: mousePosition.x === 0 ? 0 : 1,
         }}
       />
@@ -73,9 +72,7 @@ function App() {
         <Experience />
         <DevOpsProjects />
         <Projects />
-        <About />
         <Education />
-        <Certifications />
         <Contact />
       </main>
       <Footer />
@@ -84,4 +81,3 @@ function App() {
 }
 
 export default App
-
